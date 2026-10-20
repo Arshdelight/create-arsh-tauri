@@ -170,7 +170,19 @@ async function main() {
 
   const spinner = p.spinner()
   spinner.start('Scaffolding project…')
-  fs.cpSync(templateDir, projectDir, { recursive: true })
+  // the published tarball never contains these dirs; skipping them here keeps
+  // local runs (template with node_modules / cargo target) identical to prod
+  fs.cpSync(templateDir, projectDir, {
+    recursive: true,
+    filter: (src) => {
+      const rel = path.relative(templateDir, src)
+      if (!rel) return true
+      const segs = rel.split(path.sep)
+      const [top] = segs
+      if (segs.includes('node_modules') || segs.includes('target')) return false
+      return !(top.startsWith('.temp') || top === 'dist' || (top === 'src-tauri' && segs[1] === 'gen'))
+    },
+  })
   // npm publish strips .gitignore from the tarball, so the template ships it
   // dotless and it gets its dot back here
   for (const f of ['gitignore', 'temp']) {
