@@ -1,0 +1,45 @@
+{
+  "name": "create-arsh-tauri",
+  "version": "0.1.0",
+  "description": "Scaffold an Arshdelight-style Tauri 2 + React + TypeScript desktop app — frameless window, UI primitives, and Rust-side build polish built in.",
+  "type": "module",
+  "bin": {
+    "create-arsh-tauri": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arshdelight/create-arsh-tauri.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Arshdelight/create-arsh-tauri/issues"
+  },
+  "homepage": "https://github.com/Arshdelight/create-arsh-tauri#readme",
+  "files": [
+    "index.js",
+    "template",
+    "!template/node_modules",
+    "!template/src-tauri/target",
+    "!template/dist",
+    "!template/src-tauri/gen/schemas"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "keywords": [
+    "tauri",
+    "react",
+    "typescript",
+    "scaffold",
+    "create",
+    "starter",
+    "template"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Liz@Arshdelight",
+    "email": "cjhzisme@163.com"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.8.1"
+  }
+}

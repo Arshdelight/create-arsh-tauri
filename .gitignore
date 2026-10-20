@@ -1,0 +1,6 @@
+node_modules
+*.tgz
+.temp*
+template/src-tauri/target
+template/src-tauri/gen/schemas
+template/dist

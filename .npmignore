@@ -1,0 +1,5 @@
+# npm pack 时排除模板内的构建产物（template/gitignore 是无点的，npm 读不到）
+template/node_modules
+template/src-tauri/target
+template/src-tauri/gen/schemas
+template/dist
